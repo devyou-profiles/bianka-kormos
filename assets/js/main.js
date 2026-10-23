@@ -161,19 +161,18 @@
     lb.setAttribute('role', 'dialog');
     lb.setAttribute('aria-modal', 'true');
     lb.hidden = true;
-    lb.innerHTML = '<figure class="lb-fig"><img class="lb-img" alt=""><figcaption class="lb-cap"></figcaption></figure>' +
+    lb.innerHTML = '<figure class="lb-fig"><img class="lb-img" alt=""></figure>' +
       '<button type="button" class="lb-btn lb-close">&times;</button>' +
       '<button type="button" class="lb-btn lb-prev" aria-label="Previous">&#8249;</button>' +
       '<button type="button" class="lb-btn lb-next" aria-label="Next">&#8250;</button>';
     document.body.appendChild(lb);
-    var lbImg = lb.querySelector('.lb-img'), lbCap = lb.querySelector('.lb-cap'), lbClose = lb.querySelector('.lb-close');
+    var lbImg = lb.querySelector('.lb-img'), lbClose = lb.querySelector('.lb-close');
     var group = [], idx = 0, opener = null;
     function show(i) {
       idx = (i + group.length) % group.length;
       var img = group[idx];
       lbImg.src = img.currentSrc || img.src;
       lbImg.alt = img.alt;
-      lbCap.textContent = img.alt;
       lb.classList.toggle('lb-single', group.length < 2);
     }
     function open(img) {
